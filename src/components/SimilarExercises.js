@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 import { Typography, Box, Stack } from '@mui/material';
 import Loader from './Loader';
 import HorizontalScrollbar from './HorizontalScrollbar';
@@ -19,7 +19,7 @@ const SimilarExercises = ({ targetMuscleExercises, equipmentExercises }) => {
                 {equipmentExercises.length !== 0 ? <HorizontalScrollbar data={equipmentExercises} /> : <Loader />}
             </Stack>
         </Box>
-    )
-}
+    );
+};
 
-export default SimilarExercises
+export default SimilarExercises;

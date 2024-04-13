@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 import { Route, Routes } from 'react-router-dom';
 
 import { Box } from '@mui/material';
@@ -17,7 +17,7 @@ const App = () => {
             </Routes>
             <Footer />
         </Box>
-    )
-}
+    );
+};
 
-export default App
+export default App;

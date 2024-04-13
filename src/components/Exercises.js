@@ -2,13 +2,14 @@ import React, { useEffect, useState } from 'react';
 import Pagination from '@mui/material/Pagination';
 import { Box, Stack, Typography } from '@mui/material';
 import ExerciseCard from './ExerciseCard';
+import Loader from './Loader';
 import { exerciseOptions, fetchData } from '../utils/fetchData';
 
 const Exercises = ({ exercises, setExercises, bodyPart }) => {
     // console.log(exercises);
 
     const [currentPage, setCurrentPage] = useState(1);
-    const exercisesPerPage = 9;
+    const [exercisesPerPage] = useState(6);
 
     useEffect(() => {
         const fetchExercisesData = async () => {
@@ -37,9 +38,11 @@ const Exercises = ({ exercises, setExercises, bodyPart }) => {
 
         window.scrollTo({ top: 1800, behavior: 'smooth' });
     };
+
+    if (!currentExercises.length) return <Loader />;
     return (
         <Box id="exercises" sx={{ mt: { lg: '109px' } }} mt="50px" p="20px">
-            <Typography variant="h3" mb="46px">Showing Results</Typography>
+            <Typography variant="h3" fontWeight="bold" sx={{ fontSize: { lg: '44px', xs: '30px' } }} mb="46px">Showing Results</Typography>
             <Stack direction="row" sx={{ gap: { lg: '107px', xs: '50px' } }} flexWrap="wrap" justifyContent="center">
                 {currentExercises.map((exercise, index) => (
                     <ExerciseCard key={index} exercise={exercise} />
@@ -59,7 +62,7 @@ const Exercises = ({ exercises, setExercises, bodyPart }) => {
                 )}
             </Stack>
         </Box>
-    )
-}
+    );
+};
 
 export default Exercises;

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react';
 import { Box, Button, Stack, TextField, Typography } from '@mui/material';
 import { exerciseOptions, fetchData } from '../utils/fetchData';
 import HorizontalScrollbar from './HorizontalScrollbar';
@@ -13,10 +13,10 @@ const SearchExercises = ({ setExercises, bodyPart, setBodyPart }) => {
         const fetchExercisesData = async () => {
             const bodyPartsData = await fetchData('https://exercisedb.p.rapidapi.com/exercises/bodyPartList', exerciseOptions);
             setBodyParts(['all', ...bodyPartsData]);
-        }
+        };
         fetchExercisesData();
         // console.log(bodyParts);
-    }, [])
+    }, []);
 
     const handleSearch = async () => {
         if (search) {
@@ -25,9 +25,11 @@ const SearchExercises = ({ setExercises, bodyPart, setBodyPart }) => {
             const searchedExercises = exercisesData.filter((exercise) => exercise.name.toLowerCase().includes(search)
                 || exercise.target.toLowerCase().includes(search)
                 || exercise.equipment.toLowerCase().includes(search)
-                || exercise.bodyPart.toLowerCase().includes(search)
+                || exercise.bodyPart.toLowerCase().includes(search),
             );
             // console.log(searchedExercises);
+            window.scrollTo({ top: 1750, left: 100, behavior: 'smooth' });
+
             setSearch('');
             setExercises(searchedExercises);
             // console.log(search);
@@ -51,11 +53,11 @@ const SearchExercises = ({ setExercises, bodyPart, setBodyPart }) => {
                             borderRadius: '4px'
                         },
                         width: {
-                            lg: '800px',
+                            lg: '900px',
                             xs: '350px'
                         },
-                        backgroundColor: '#fff'
-
+                        backgroundColor: '#fff',
+                        borderRadius: '40px'
                     }}
                     height='76px'
                     value={search}
@@ -83,7 +85,7 @@ const SearchExercises = ({ setExercises, bodyPart, setBodyPart }) => {
                 <HorizontalScrollbar data={bodyParts} bodyPart={bodyPart} setBodyPart={setBodyPart} isBodyParts />
             </Box>
         </Stack>
-    )
-}
+    );
+};
 
 export default SearchExercises;

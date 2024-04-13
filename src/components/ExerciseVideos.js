@@ -1,10 +1,9 @@
-import React from 'react'
+import React from 'react';
 import { Typography, Box, Stack } from '@mui/material';
+import Loader from './Loader';
 
 const ExerciseVideos = ({ exerciseVideos, name }) => {
-    console.log(exerciseVideos);
-
-    if (!exerciseVideos.length) return 'Loading...';
+    if (!exerciseVideos.length) return <Loader />;
 
     return (
         <Box sx={{ marginTop: { lg: '203px', xs: '20px' } }} p="20px">
@@ -34,7 +33,7 @@ const ExerciseVideos = ({ exerciseVideos, name }) => {
                 ))}
             </Stack>
         </Box>
-    )
-}
+    );
+};
 
-export default ExerciseVideos
+export default ExerciseVideos;
