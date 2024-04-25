@@ -2,22 +2,30 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Stack } from '@mui/material'
 import Logo from '../assets/images/Logo.png';
+import { useMediaQuery } from '@mui/material';
+import { useTheme } from '@mui/material/styles';
 
 const Navbar = () => {
+    const theme = useTheme();
+    const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
+    const maxWidth = isMobile ? 80 : 124; // Set different max widths for mobile and larger screens
+    const maxHeight = isMobile ? 80 : 124;
     return (
         <Stack
             direction="row"
             justifyContent="space-around"
 
-            sx={{ gap: { sm: '122px', xs: '40px' }, mt: { sm: '22px', xs: '12px' }, justifyContent: 'none', alignItems: 'center' }} px='20px'
+            sx={{ gap: { md: '122px', xs: '30px', sm: '80px' }, mt: { sm: '22px', xs: '12px' }, justifyContent: 'none', alignItems: 'center' }} px='20px'
         >
             <Link to="/">
                 <img src={Logo} alt="logo" style={{ width: '124px', height: '124px', margin: '0 20px' }} />
             </Link>
+
             <Stack
+                sx={{ gap: { sm: '40px', xs: '20px' }, fontSize: { sm: '24px', xs: '20px' } }}
                 direction="row"
-                gap="40px"
-                fontSize="24px"
+                // gap="40px"
+
                 fontFamily="Alegreya"
                 alignItems="flex-end"
             >
