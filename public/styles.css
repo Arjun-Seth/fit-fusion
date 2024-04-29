@@ -57,15 +57,10 @@ body {
   position: absolute;
   right: 40px;
   top: 0px;
-  /* width: 700px; */
-  width: 47%;
+  width: 40%;
   height: auto;
   border-bottom-left-radius: 15%;
-
-  /* height: 900px; */
-  margin-top: -120px;
-  /* margin-bottom: -730px; */
-  /* aspect-ratio: ; */
+  margin-top: -130px;
 }
 
 .exercise-card {
